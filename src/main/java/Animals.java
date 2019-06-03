@@ -1,75 +1,55 @@
-
 import org.sql2o.*;
 import java.util.ArrayList;
 import java.util.List;
 
-
-
 public class Animals {
-
-    public Animals(String name, String health, String age, int animalId) {
-        this.name = name;
-        this.health = health;
-        this.age = age;
-        this.animalId = animalId;
-    }
-
     public String name;
-    public String health;
-    public String age;
-    public int animalId;
+    public int id;
 
+    public Animals(String name) {
+        this.name = name;
+        this.id = id;
+    }
 
     public String getName() {
         return name;
     }
 
-    public String getHealth() {
-        return health;
+    public int getId() {
+        return id;
     }
 
-    public String getAge() {
-        return age;
+    @Override
+    public boolean equals(Object otherAnimals) {
+        if(!(otherAnimals instanceof Animals)) {
+            return false;
+        } else {
+            Animals newAnimals = (Animals) otherAnimals;
+            return this.getName().equals(newAnimals.getName());
+        }
     }
-
-    public int getAnimalId() {
-        return animalId;
-    }
-
 
     public void save() {
-        try (Connection con = DB.sql2o.open()) {
-            String sql = "INSERT INTO animals (name, health,age, animalid) VALUES (:name, :AnimalId)";
-            this.animalId = (int) con.createQuery(sql, true)
+        try(Connection con = DB.sql2o.open()) {
+            String sql = "INSERT INTO animals (name) VALUES (:name);";
+            this.id = (int) con.createQuery(sql, true)
                     .addParameter("name", this.name)
-                    .addParameter("animalId", this.animalId)
                     .executeUpdate()
                     .getKey();
         }
     }
 
-    @Override
-    public boolean equals(Object otherAnimals) {
-        if (!(otherAnimals instanceof Animals)) {
-            return false;
-        } else {
-            Animals newanimal = (Animals) otherAnimals;
-            return this.getName().equals(newanimal.getName()) &&
-                    this.getAnimalId() == newanimal.getAnimalId();
+    public static List<Animals> all() {
+        try(Connection con = DB.sql2o.open()) {
+            String sql = "SELECT * FROM animals;";
+            return con.createQuery(sql)
+                    .executeAndFetch(Animals.class);
         }
-
-        public static List<Animals> all () {
-            String sql = "SELECT * FROM animals";
-            try (Connection con = DB.sql2o.open()) {
-                return con.createQuery(sql).executeAndFetch(Animals.class);x
-            }
-        }
-
     }
 
-    public static Animals find (int id) {
-        try(Connection con = DB.sql2o.open()){
-            String sql = "SELECT * FROM animals where id=:id";
+    public static Animals find(int id) {
+        try(Connection con = DB.sql2o.open()) {
+            String sql = "SELECT * FROM animals WHERE id=:id;";
             Animals animal = con.createQuery(sql)
                     .addParameter("id", id)
                     .executeAndFetchFirst(Animals.class);
@@ -77,5 +57,33 @@ public class Animals {
         }
     }
 
+    public void updateName(String name) {
+        try(Connection con = DB.sql2o.open()) {
+            String sql = "UPDATE animals SET name=:name WHERE id=:id;";
+            con.createQuery(sql)
+                    .addParameter("id", id)
+                    .addParameter("name", name)
+                    .executeUpdate();
+        }
+    }
+
+    public void delete() {
+        try(Connection con = DB.sql2o.open()) {
+            String sql = "DELETE FROM animals WHERE id=:id;";
+            con.createQuery(sql)
+                    .addParameter("id", id)
+                    .executeUpdate();
+        }
+    }
+
+    public List<Sightings> getsightings() {
+        try(Connection con = DB.sql2o.open()) {
+            String sql = "SELECT * FROM sightings WHERE animal_id=:id;";
+            List<Sightings> sightings = con.createQuery(sql)
+                    .addParameter("id", id)
+                    .executeAndFetch(Sightings.class);
+            return sightings;
+        }
+    }
 
 }
