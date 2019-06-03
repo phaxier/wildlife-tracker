@@ -16,7 +16,7 @@ public class SightingsTest {
     public void sighting_instantiatesCorrectly_true() {
         Animals testAnimals = new Animals("Tortoise");
         testAnimals.save();
-        Sightings testSightings = new Sightings(testAnimals.getId(), "54.542514, -111.849520", "Ranger Muchai");
+        Sightings testSightings = new Sightings(testAnimals.getId(), "Zone A", "Ranger Muchai");
         assertEquals(true, testSightings instanceof Sightings);
     }
 
@@ -24,8 +24,8 @@ public class SightingsTest {
     public void equals_returnsTrueIfLocationAndDescriptionAreSame_true() {
         Animals testAnimals = new Animals("Tortoise");
         testAnimals.save();
-        Sightings testSightings = new Sightings(testAnimals.getId(), "54.542514, -111.849520", "Ranger Muchai");
-        Sightings anotherSightings = new Sightings(testAnimals.getId(), "54.542514, -111.849520", "Ranger Muchai");
+        Sightings testSightings = new Sightings(testAnimals.getId(), "Zone A", "Ranger Muchai");
+        Sightings anotherSightings = new Sightings(testAnimals.getId(), "Zone A", "Ranger Muchai");
         assertTrue(testSightings.equals(anotherSightings));
     }
 
@@ -33,7 +33,7 @@ public class SightingsTest {
     public void save_insertsObjectIntoDatabase_Sightings() {
         Animals testAnimals = new Animals("Tortoise");
         testAnimals.save();
-        Sightings testSightings = new Sightings (testAnimals.getId(), "54.542514, -111.849520", "Ranger Muchai");
+        Sightings testSightings = new Sightings (testAnimals.getId(), "Zone A", "Ranger Muchai");
         testSightings.save();
         assertEquals(true, Sightings.all().get(0).equals(testSightings));
     }
@@ -42,11 +42,11 @@ public class SightingsTest {
     public void all_returnsAllInstancesOfSightings_true() {
         Animals testAnimals = new Animals("Tortoise");
         testAnimals.save();
-        Sightings testSightings = new Sightings (testAnimals.getId(), "54.98538, -111.9294965", "Ranger Muchai");
+        Sightings testSightings = new Sightings (testAnimals.getId(), "Nyoka", "Ranger Muchai");
         testSightings.save();
-        Animals secondTestAnimals = new Animals("Badger");
+        Animals secondTestAnimals = new Animals("Nyoka");
         secondTestAnimals.save();
-        Sightings secondTestSightings = new Sightings (testAnimals.getId(), "54.542514, -111.849520", "Ranger Kemboi");
+        Sightings secondTestSightings = new Sightings (testAnimals.getId(), "Zone A", "Ranger Kemboi");
         secondTestSightings.save();
         assertEquals(true, Sightings.all().get(0).equals(testSightings));
         assertEquals(true, Sightings.all().get(1).equals(secondTestSightings));
@@ -56,11 +56,11 @@ public class SightingsTest {
     public void find_returnsSightingsWithSameId_secondSightings() {
         Animals testAnimals = new Animals("Tortoise");
         testAnimals.save();
-        Sightings testSightings = new Sightings (testAnimals.getId(), "54.542514, -111.849520", "Ranger Muchai");
+        Sightings testSightings = new Sightings (testAnimals.getId(), "Zone A", "Ranger Muchai");
         testSightings.save();
-        Animals secondTestAnimals = new Animals("Badger");
+        Animals secondTestAnimals = new Animals("Nyoka");
         secondTestAnimals.save();
-        Sightings secondTestSightings = new Sightings (testAnimals.getId(), "54.542514, -111.849520", "Ranger Kemboi");
+        Sightings secondTestSightings = new Sightings (testAnimals.getId(), "Zone A", "Ranger Kemboi");
         secondTestSightings.save();
         assertEquals(Sightings.find(secondTestSightings.getId()), secondTestSightings);
     }
