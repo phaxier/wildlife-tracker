@@ -25,8 +25,8 @@ public class AnimalsTest {
 
     @Test
     public void equals_returnsTrueIfTwoObjectsAreSame_true() {
+        Animals testmonkey = new Animals("Hyena", "okay", "young", 1);
         Animals testanimal = new Animals("Hyena", "okay", "young", 1);
-        Animals testanimal = new Animals("Hyena", "okay", "young", 1);
-        assertTrue(testanimal.equals(testanimal));
+        assertTrue(testmonkey.equals(testanimal));
     }
     }
