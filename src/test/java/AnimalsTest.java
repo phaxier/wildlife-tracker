@@ -40,7 +40,7 @@ public class AnimalsTest {
     public void all_returnsAllInstancesOfAnimals_false() {
         Animals firstAnimals = new Animals("Tortoise");
         firstAnimals.save();
-        Animals secondAnimals = new Animals("Black Bear");
+        Animals secondAnimals = new Animals("Fisi");
         secondAnimals.save();
         assertEquals(true, Animals.all().get(0).equals(firstAnimals));
         assertEquals(true, Animals.all().get(1).equals(secondAnimals));
@@ -50,7 +50,7 @@ public class AnimalsTest {
     public void find_returnsAnimalsWithSameId_secondAnimals() {
         Animals firstAnimals = new Animals("Tortoise");
         firstAnimals.save();
-        Animals secondAnimals = new Animals("Black Bear");
+        Animals secondAnimals = new Animals("Fisi");
         secondAnimals.save();
         assertEquals(Animals.find(secondAnimals.getId()), secondAnimals);
     }
