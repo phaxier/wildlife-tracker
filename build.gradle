@@ -1,9 +1,13 @@
 plugins {
     id 'java'
+    id 'application'
 }
 
 group 'wildlife-tracker'
 version '1.0-SNAPSHOT'
+applicationName = 'wildlife-tracker'
+archivesBaseName = 'wildlife-tracker'
+mainClassName = "App"
 
 sourceCompatibility = 1.8
 
