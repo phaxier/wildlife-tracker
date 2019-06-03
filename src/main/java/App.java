@@ -14,7 +14,7 @@ public class App {
         get("/", (request, response) -> {
             Map<String, Object> model = new HashMap<String, Object>();
             model.put("animals", Animals.all());
-            model.put("endangeredAnimals", EndangeredAnimals.all());
+            model.put("endangeredAnimals", EndangeredAnimal.all());
             model.put("sightings", Sightings.all());
             model.put("template", "templates/index.vtl");
             return new ModelAndView(model, layout);
@@ -28,8 +28,8 @@ public class App {
             Sightings sightings = new Sightings(animalIdSelected, latLong, rangerName);
             sightings.save();
             model.put("sightings", sightings);
-            model.put("animals", EndangeredAnimals.all());
-            String animal = EndangeredAnimals.find(animalIdSelected).getName();
+            model.put("animals", EndangeredAnimal.all());
+            String animal = EndangeredAnimal.find(animalIdSelected).getName();
             model.put("animals", animal);
             model.put("template", "templates/success.vtl");
             return new ModelAndView(model, layout);
