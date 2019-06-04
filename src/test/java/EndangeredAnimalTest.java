@@ -53,7 +53,7 @@ public class EndangeredAnimalTest {
     public void update_updatesHealthAttribute_true() {
         EndangeredAnimal testEndangeredAnimal = new EndangeredAnimal("Fox", "Healthy", "Young");
         testEndangeredAnimal.save();
-        testEndangeredAnimal.updateHealth("healthy");
+        testEndangeredAnimal.updateHealth("ill");
         assertEquals("ill", EndangeredAnimal.find(testEndangeredAnimal.getId()).getHealth());
     }
 
