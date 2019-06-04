@@ -10,6 +10,9 @@ archivesBaseName = 'wildlife-tracker'
 mainClassName = "App"
 
 sourceCompatibility = 1.8
+task wrapper(type: Wrapper) {
+    gradleVersion = '1.6'
+}
 
 repositories {
     mavenCentral()
