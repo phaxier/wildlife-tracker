@@ -1,29 +1,43 @@
-<h4><a href="/">Home</a></h4>
+<!-- Card -->
+<div class="card card-image" style="background-image: url(https://images.unsplash.com/photo-1516912347627-9c5b5d08b35f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60);">
 
-<h1>Add Animal to Database</h1>
+    <!-- Content -->
+    <div class="text-white text-center align-items-center rgba-black py-5 px-4">
+        <div>
+            <h5 class="pink-text"><i class="fas fa-chart-pie"></i> Add a new Animal</h5>
+            <h3 class="card-title pt-2"><strong>Let's add a new animal to the database</strong></h3>
+            <form action="/animal/new" method="post">
+                <label>Animal Species</label>
+                <input type="text" name="name">
+                <div class="switch">
+                    <label>
+                        <input type="checkbox">
+                        Is the animal Endangered?
+                    </label>
+                </div>
 
-<form action="/animal/new" method="post">
-<label>Animal Species</label>
-<input type="text" name="name">
-<label>Endangered?</label>
-<input type="checkbox" name="endangered">
+                <h3>More information about the Endangered Animals:</h3>
 
-<h3>Additional Info for Endangered Animals:</h3>
+                <label>Health</label>
+                <select name="health">
+                    <option>Ill</option>
+                    <option>Okay</option>
+                    <option>Healthy</option>
+                </select>
 
-<label>Health</label>
-<select name="health">
-    <option>Ill</option>
-    <option>Okay</option>
-    <option>Healthy</option>
-</select>
+                <label>Age</label>
+                <select name="age">
+                    <option>Newborn</option>
+                    <option>Young</option>
+                    <option>Adult</option>
+                </select>
 
-<label>Age</label>
-<select name="age">
-    <option>Newborn</option>
-    <option>Young</option>
-    <option>Adult</option>
-</select>
+                <button type="submit">Add Animal</button>
 
-<button type="submit">Add Animal</button>
+            </form>
+            <a  href="/" class="btn btn-pink"><i class="fas fa-clone left"></i> home</a>
+        </div>
+    </div>
 
-</form>
+</div>
+        <!-- Card -->

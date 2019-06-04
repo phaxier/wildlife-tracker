@@ -5,7 +5,6 @@ import java.util.List;
 public class EndangeredAnimal {
     public String name;
     public int id;
-    public boolean endangered;
     private String health;
     private String age;
 
