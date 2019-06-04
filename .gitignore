@@ -36,3 +36,11 @@ Thumbs.db
 ############
 build/
 .gradle/
+build
+.gradle
+.idea
+out
+*.iml
+*.ipr
+*.iws
+.DS_Store
