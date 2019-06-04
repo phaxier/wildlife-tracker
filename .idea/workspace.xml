@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b5aee601-2f0e-4b14-a8df-2f40bbe7fe48" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/POM.xml" beforeDir="false" afterPath="$PROJECT_DIR$/POM.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/EndangeredAnimalTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/EndangeredAnimalTest.java" afterDir="false" />
-    </list>
+    <list default="true" id="b5aee601-2f0e-4b14-a8df-2f40bbe7fe48" name="Default Changelist" comment="" />
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/.gradle/" />
     <ignored path="$PROJECT_DIR$/build/" />
