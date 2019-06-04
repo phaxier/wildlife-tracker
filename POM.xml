@@ -77,9 +77,9 @@
                 <configuration>
                     <jdkVersion>1.8</jdkVersion>
                     <!-- Change this to YOUR application name! -->
-                    <appName>app-name</appName>
+                    <appName>wildlife-tracker-porini</appName>
                     <processTypes>
-                        <web>java -jar target/my-app-1.0-jar-with-dependencies.jar</web>
+                        <web>java $JAVA_OPTS -cp target/classes:target/dependency/* Main</web>
                     </processTypes>
                 </configuration>
             </plugin>
