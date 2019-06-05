@@ -42,7 +42,7 @@ public class SightingsTest {
     public void all_returnsAllInstancesOfSightings_true() {
         Animals testAnimals = new Animals("Tortoise");
         testAnimals.save();
-        Sightings testSightings = new Sightings (testAnimals.getId(), "Nyoka", "Ranger Muchai");
+        Sightings testSightings = new Sightings (testAnimals.getId(), "Zone A", "Ranger Muchai");
         testSightings.save();
         Animals secondTestAnimals = new Animals("Nyoka");
         secondTestAnimals.save();
