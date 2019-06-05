@@ -91,13 +91,13 @@ public class EndangeredAnimal {
         }
     }
 
-    public List<Sightings> getSightings() {
+    public List<EndangeredAnimal> getEndangeredAnimals() {
         try(Connection con = DB.sql2o.open()) {
             String sql = "SELECT * FROM sightings WHERE animal_id=:id;";
-            List<Sightings> sightings = con.createQuery(sql)
+            List<EndangeredAnimal> endangeredAnimals = con.createQuery(sql)
                     .addParameter("id", id)
-                    .executeAndFetch(Sightings.class);
-            return sightings;
+                    .executeAndFetch(EndangeredAnimal.class);
+            return endangeredAnimals;
         }
     }
 
