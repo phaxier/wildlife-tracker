@@ -6,8 +6,22 @@ import java.util.List;
 import java.util.Arrays;
 
 public class AnimalsTest {
-    @Rule
-    public DatabaseRule database = new DatabaseRule();
+
+    @Before
+    public void setUp(){
+        DB.sql2o = new Sql2o("jdbc:postgresql://localhost:5432/wildlife_tracker_test", "kos","210");
+    }
+
+    @After
+    public void tearDown(){
+        try(Connection con = DB.sql2o.open()){
+            String deleteAnimalsQuery = "DELETE FROM animals*;";
+            String deleteSightingsQuery = "DELETE FROM sightings*;";
+            con.createQuery(deleteAnimalsQuery).executeUpdate();
+            con.createQuery(deleteSightingsQuery).executeUpdate();
+        }
+    }
+
 
     @Test
     public void animal_instantiatesCorrectly_false() {
