@@ -26,9 +26,10 @@ cd build/classes/java/main
 ## Run the following command to execute the Terminal-java application
 
 java App
-In PSQL:
+
+## In PSQL:
 CREATE DATABASE wildlife;
-CREATE TABLE sighting (id serial PRIMARY KEY, animal_id int,location varchar,ranger_name varchar);
+CREATE TABLE sightings (id serial PRIMARY KEY, animal_id int,location varchar,ranger_name varchar);
 CREATE TABLE animals (id serial PRIMARY KEY, name varchar);
 CREATE TABLE endangered_animals (id serial PRIMARY KEY, name varchar, health varchar, age varchar);
 
