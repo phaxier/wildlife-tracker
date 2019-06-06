@@ -5,7 +5,7 @@ plugins {
 
 group 'wildlife-tracker'
 version '1.0-SNAPSHOT'
-applicationName = 'wildlife-tracker'
+applicationName = 'wildlife-tracker-porini'
 archivesBaseName = 'wildlife-tracker'
 mainClassName = "App"
 
@@ -25,5 +25,5 @@ dependencies {
     compile group: 'org.sql2o', name: 'sql2o', version: '1.5.4'
     compile group: 'org.postgresql', name: 'postgresql', version: "9.4-1201-jdbc41"
 }
-task stage(dependsOn: ['build', 'clean'])
+task stage(dependsOn:['clean', 'installDist'])
 build.mustRunAfter clean

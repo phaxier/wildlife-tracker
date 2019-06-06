@@ -1,0 +1,31 @@
+<h4><a href="/">Home</a></h4>
+
+<h1>$endangeredAnimal.getName()</h1>
+<h3>ID: $endangeredAnimal.getId()</h3>
+
+        #if($endangeredAnimal.getSightings().size() == 0)
+<p>To report an Endangered animal, please visit the <a href="/">home page</a>.</p>
+        #else
+<table class="table">
+<thead>
+<tr>
+    <th scope="col">Location</th>
+    <th scope="col">Health</th>
+    <th scope="col">Age</th>
+    <th scope="col">Reported By</th>
+    <th scope="col">Animal ID</th>
+</tr>
+</thead>
+<tbody>
+#foreach($sighting in $sightings)
+<tr>
+    <td>$sighting.getLocation()</td>
+    <td>$endangeredAnimal.getHealth()</td>
+    <td>$endangeredAnimal.getAge()</td>
+    <td>$sighting.getRangerName()</td>
+    <td>$sighting.getId()</td>
+</tr>
+#end
+</tbody>
+</table>
+        #end

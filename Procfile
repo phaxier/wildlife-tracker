@@ -1,1 +1,1 @@
-web: ./build/install/wildlife-tracker/bin/wildlife-tracker
+web: ./build/install/wildlife-tracker-porini/bin/wildlife-tracker-porini

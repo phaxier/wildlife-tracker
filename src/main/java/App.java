@@ -71,7 +71,7 @@ public class App {
 
         post("/animal/new", (request, response) -> {
             Map<String, Object> model = new HashMap<String, Object>();
-            boolean endangered = request.queryParamsValues("endangered")!=null;
+            boolean endangered =Boolean.parseBoolean(request.queryParams("endangered"));
             if (endangered) {
                 String name = request.queryParams("name");
                 String health = request.queryParams("health");
@@ -95,6 +95,7 @@ public class App {
             Map<String, Object> model = new HashMap<String, Object>();
             Animals animals = Animals.find(Integer.parseInt(request.params("id")));
             model.put("animal", animals);
+            model.put("sightings", Sightings.all());
             model.put("template", "templates/animal.vtl");
             return new ModelAndView(model, layout);
         }, new VelocityTemplateEngine());
@@ -102,6 +103,7 @@ public class App {
         get("/endangered_animal/:id", (request, response) -> {
             Map<String, Object> model = new HashMap<String, Object>();
             EndangeredAnimal endangeredAnimal = EndangeredAnimal.find(Integer.parseInt(request.params("id")));
+            model.put("sightings", Sightings.all());
             model.put("endangeredAnimal", endangeredAnimal);
             model.put("template", "templates/endangered_animal.vtl");
             return new ModelAndView(model, layout);

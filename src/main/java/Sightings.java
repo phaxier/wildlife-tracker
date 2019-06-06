@@ -32,6 +32,10 @@ public class Sightings {
         return ranger_name;
     }
 
+    public static Animals getAnimals(int id){
+        return Animals.find(id);
+    }
+
     @Override
     public boolean equals(Object otherSightings) {
         if(!(otherSightings instanceof Sightings)) {

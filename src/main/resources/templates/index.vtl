@@ -39,7 +39,7 @@
                 <input type="text" name="rangerName">
                 <label>Ranger Name</label>
                         <hr>
-                <button type="Submit" class="btn btn-primary btn-md">Submit Report</button>
+                <button type="submit" class="btn btn-primary btn-md">Submit Report</button>
                 #end
             </form>
 
@@ -83,7 +83,7 @@
                 <input type="text" name="rangerName">
                 <label>Ranger Name</label>
                         <hr>
-                <button type="Submit" class="btn btn-primary btn-md">Submit Report</button>
+                <button type="submit" class="btn btn-primary btn-md">Submit Report</button>
                 #end
             </form>
 
@@ -105,7 +105,6 @@
     #foreach ($endangeredAnimal in $endangeredAnimals)
     <a href="/endangered_animal/$endangeredAnimal.getId()" class="thumbnail">
         <h4>$endangeredAnimal.getName()</h4>
-        <h4>$endangeredAnimal.getSightings().size() Reported Sighting(s)</h4>
         <p>Click for details</p>
     </a>
     #end
@@ -118,7 +117,6 @@
     #foreach ($animal in $animals)
     <a href="/animal/$animal.getId()" class="thumbnail">
         <h4>$animal.getName()</h4>
-        <h4>$animal.getSightings().size() Reported Sighting(s)</h4>
         <p>Click for details</p>
     </a>
     #end

@@ -1,0 +1,9 @@
+body {
+    color: rgba(0,0,0,0.87);
+    line-height: 1.6;
+    font-size: 20px;
+    -webkit-font-smoothing: antialiased;
+}
+.card card-image{
+background-repeat: no-repeat;
+}

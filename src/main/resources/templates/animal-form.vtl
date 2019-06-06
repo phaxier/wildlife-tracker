@@ -9,12 +9,14 @@
             <form action="/animal/new" method="post">
                 <label>Animal Species</label>
                 <input type="text" name="name">
-                <div class="switch">
-                    <label>
-                        <input type="checkbox">
-                        Is the animal Endangered?
-                    </label>
-                </div>
+
+                    <label>Is the animal endangered?</label>
+
+                    <select name="endangered">
+                            <option>true</option>
+                            <option>false</option>
+                        </select>
+
 
                 <h3>More information about the Endangered Animals:</h3>
 
