@@ -30,7 +30,9 @@ java App
 ## In PSQL:
 CREATE DATABASE wildlife;
 CREATE TABLE sightings (id serial PRIMARY KEY, animal_id int,location varchar,ranger_name varchar);
+
 CREATE TABLE animals (id serial PRIMARY KEY, name varchar);
+
 CREATE TABLE endangered_animals (id serial PRIMARY KEY, name varchar, health varchar, age varchar);
 
 ## BDD
